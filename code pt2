@@ -1,0 +1,79 @@
+import java.util.*;
+
+class calculator
+{
+	public static void main(String a[])
+	{
+		
+		int num1=0,num2=0,option,ex;
+		do
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter your choice from the following menu:");
+			System.out.println("1.Addition 2.Subtraction 3.Multiplication 4.Division 5.Sqrt 6.mean 7.variance 8.exit");
+			option = sc.nextInt();
+			if(option!=8){
+				System.out.println("Enter the first number");
+				num1=sc.nextInt();
+				System.out.println("Enter the second number");
+				num2=sc.nextInt();
+			}
+			else
+				break;
+			switch(option)
+			{
+				case 1:System.out.println("Addition of "+num1+" and "+num2+" is "+(num1+num2));
+					break;
+				case 2:System.out.println("Subtraction of "+num1+" and "+num2+" is "+(num1-num2));
+					break;
+				case 3:System.out.println("Addition of "+num1+" and "+num2+" is "+(num1+num2));
+					break;
+				case 4:	if(num2==0)
+						System.out.println("Error!!! In Division denominator cannot be 0!");
+					else{
+					System.out.println("In division of "+num1+" by "+num2+" quotient is "+(num1/num2)+" and remainder is "+(num1%num2));} 
+					break;
+				case 5: System.out.println("sqrt of "+num1+" and "+num2+" is math.sqrt(num1) and math.sqrt(num2))
+        case 6: 
+        {
+        int count, i;
+        float sum = 0, mean;
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+ 
+        System.out.println("Enter Number of Elements");
+        count = scanner.nextInt();
+ 
+        System.out.println("Enter " + count + " 
+            Elements");
+        for (i = 0; i < count; i++) {
+            sum += scanner.nextInt();
+        }
+        // Mean or Average = Sum/Count
+        mean = sum / count;
+ 
+        System.out.println("Mean : " + mean);
+    }
+    case 7:
+        n=sc.nextInt();
+
+        int a[]=new int[n];
+
+        System.out.println("enter N value");
+
+        for(int i=0;i<n;i++) {
+
+          a[i]=sc.nextInt();
+
+          sum+=a[i];
+
+}
+        
+      case 8: break;
+				default: System.out.println("Invalid choice");
+			}
+			System.out.println("Do you want to continue?1.Yes 2.No");
+			ex=sc.nextInt();
+		}while(ex==1);
+	}
+}
