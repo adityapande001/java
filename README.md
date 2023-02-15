@@ -1,4 +1,4 @@
-# java
+# java 1
 Factorial Program in Java: Factorial of n is the product of all positive descending integers. Factorial of n is denoted by n!.
 Algorithm
 1.Start
