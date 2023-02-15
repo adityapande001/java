@@ -1,79 +1,174 @@
-import java.util.*;
+import java.util.Scanner;
+import java.io.*;
+import java.io.Console;
 
-class calculator
-{
-	public static void main(String a[])
-	{
-		
-		int num1=0,num2=0,option,ex;
-		do
-		{
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter your choice from the following menu:");
-			System.out.println("1.Addition 2.Subtraction 3.Multiplication 4.Division 5.Sqrt 6.mean 7.variance 8.exit");
-			option = sc.nextInt();
-			if(option!=8){
-				System.out.println("Enter the first number");
-				num1=sc.nextInt();
-				System.out.println("Enter the second number");
-				num2=sc.nextInt();
-			}
-			else
-				break;
-			switch(option)
-			{
-				case 1:System.out.println("Addition of "+num1+" and "+num2+" is "+(num1+num2));
-					break;
-				case 2:System.out.println("Subtraction of "+num1+" and "+num2+" is "+(num1-num2));
-					break;
-				case 3:System.out.println("Addition of "+num1+" and "+num2+" is "+(num1+num2));
-					break;
-				case 4:	if(num2==0)
-						System.out.println("Error!!! In Division denominator cannot be 0!");
-					else{
-					System.out.println("In division of "+num1+" by "+num2+" quotient is "+(num1/num2)+" and remainder is "+(num1%num2));} 
-					break;
-				case 5: System.out.println("sqrt of "+num1+" and "+num2+" is math.sqrt(num1) and math.sqrt(num2))
-        case 6: 
-        {
-        int count, i;
-        float sum = 0, mean;
-        Scanner scanner;
-        scanner = new Scanner(System.in);
- 
-        System.out.println("Enter Number of Elements");
-        count = scanner.nextInt();
- 
-        System.out.println("Enter " + count + " 
-            Elements");
-        for (i = 0; i < count; i++) {
-            sum += scanner.nextInt();
-        }
-        // Mean or Average = Sum/Count
-        mean = sum / count;
- 
-        System.out.println("Mean : " + mean);
+public class input_calculator {
+    public static void main(String[] args) throws IOException, ArrayIndexOutOfBoundsException{
+        {//commandline arguments
+            //System.out.println("Input taken  commandline arguments: ");
+            //System.out.print("Enter a number: ");
+            //int num1 = Integer.parseInt(args[0]);
+           // System.out.println("Number entered (commandline): " + num1);
+
+            //input option
+            input_options.input();
+
+           // calculator
+            calculator.calculation();}
+
     }
-    case 7:
-        n=sc.nextInt();
-
-        int a[]=new int[n];
-
-        System.out.println("enter N value");
-
-        for(int i=0;i<n;i++) {
-
-          a[i]=sc.nextInt();
-
-          sum+=a[i];
-
 }
-        
-      case 8: break;
-				default: System.out.println("Invalid choice");
-			}
-			System.out.println("Do you want to continue?1.Yes 2.No");
-			ex=sc.nextInt();
-		}while(ex==1);
-	}
+
+class input_options {
+    static void input() throws IOException{
+
+         //scanner object
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input taken through scanner object: ");
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        System.out.println("Number entered (scanner): " + num);
+
+        //BufferedReader object
+        InputStreamReader r= new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(r);
+        System.out.println("Input taken through BufferedReader object: ");
+        System.out.print("Enter a number: ");
+        String n = br.readLine();
+        int num2 = Integer.parseInt(n);
+        System.out.println("Number entered (BufferedReader): " + num2);
+
+        //DataInputStream object
+        DataInputStream data = new DataInputStream(System.in);
+        System.out.println("Input taken through DataInputStream object: ");
+        System.out.print("Enter a number: ");
+        int num3 = Integer.parseInt(data.readLine());
+        System.out.println("Number entered (DataInputStream): " + num3);
+
+        //console object
+        Console console = System.console();
+        if (console == null) {
+            System.err.println("Console object is not available.");
+            System.exit(1);
+        }
+        System.out.println("Input taken through console object: ");
+        int num4 = Integer.parseInt(console.readLine("Enter a number: "));
+		  System.out.println("Number entered (console): " + num4);
+		}
+}
+
+
+class calculator {
+    static void calculation() {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Square Root");
+            System.out.println("6. Power");
+            System.out.println("7. Mean");
+            System.out.println("8. Variance");
+            System.out.println("9. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter first number: ");
+                    double num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double num2 = sc.nextDouble();
+                    System.out.println("Result: " + (num1 + num2));
+                    break;
+                case 2:
+                    System.out.print("Enter first number: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = sc.nextDouble();
+                    System.out.println("Result: " + (num1 - num2));
+                    break;
+                case 3:
+                    System.out.print("Enter first number: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = sc.nextDouble();
+                    System.out.println("Result: " + (num1 * num2));
+                    break;
+                case 4:
+                    System.out.print("Enter first number: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = sc.nextDouble();
+                    System.out.println("Result: " + (num1 / num2));
+                    break;
+                case 5:
+                    System.out.print("Enter number: ");
+                    num1 = sc.nextDouble();
+                    System.out.println("Result: " + Math.sqrt(num1));
+                    break;
+                case 6:
+                    System.out.print("Enter base: ");
+                    num1 = sc.nextDouble();
+                    System.out.print("Enter exponent: ");
+                    int exponent = sc.nextInt();
+                    System.out.println("Result: " + Math.pow(num1, exponent));
+                    break;
+                case 7:
+                    double sum = 0;
+                    int count = 0;
+                    String input;
+                    System.out.println("Enter numbers one by one, enter 'end' to stop input:");
+                    while (true) {
+                        input = sc.next();
+                        if (input.equalsIgnoreCase("end")) {
+                            break;
+                        }
+                        sum += Double.parseDouble(input);
+                        count++;
+                    }
+                    System.out.println("Mean: " + (sum / count));
+                    break;
+                case 8:
+                    sum = 0;
+                    count = 0;
+                    double mean = 0;
+                    double variance = 0;
+                    System.out.println("Enter numbers one by one, enter 'end' to stop input:");
+                    while (true) {
+                        input = sc.next();
+                        if (input.equalsIgnoreCase("end")) {
+                            break;
+                        }
+                        double num = Double.parseDouble(input);
+                        sum += num;
+                        count++;
+                    }
+                    mean = sum / count;
+                    sc = new Scanner(System.in);
+                    System.out.println("Enter numbers one by one, enter 'end' to stop input:");
+                    while (true) {
+                        input = sc.next();
+                        if (input.equalsIgnoreCase("end")) {
+                            break;
+                        }
+                        double num = Double.parseDouble(input);
+                        variance += Math.pow((num - mean), 2);
+                    }
+                    variance = variance / count;
+                    System.out.println("Variance: " + variance);
+                    break;
+                case 9:
+                    System.out.println("Exiting...");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        }
+    }
 }
